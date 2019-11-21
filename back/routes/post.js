@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/feed', postController.feed);
+router.get('/feed/:usuario', postController.feed);
 router.get('/post', postController.post);
 router.post('/postar', postController.create_post);
 

@@ -11,23 +11,18 @@ indexRouter = require('./routes/index'),
 usersRouter = require('./routes/user'),
 postsRouter = require('./routes/post'),
 session = require('express-session');
+const db = require("./config/db");
+var app = express();
 cors = require('cors');
 
-var app = express();
 
 app.use(cors());
 //connect with BD
-var mongoDB = 'mongodb://localhost:27017/posttwit';
+var mongoDB = 'mongodb+srv://user:12345@cluster0-51bgn.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.connection.on('connected', function () {
   console.log('Mongoose success');
 });
-
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-
-
 app.use(bodyParser.json());
 
 
@@ -77,5 +72,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(process.env.PORT || 3333);
 module.exports = app;

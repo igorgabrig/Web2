@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000/posts"
+    
+    baseURL: "https://postwit-api-web2.herokuapp.com/posts/feed/"
 });
+
+
 
 export default api;

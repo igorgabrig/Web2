@@ -49,7 +49,7 @@ exports.post = function (req, res) {
 
 
 exports.feed = function (req, res) {
-    var remetente = "joao";
+    var remetente = req.params.usuario;
     if (remetente == null) {
         return res.redirect('/');
     }

@@ -13,7 +13,10 @@ export default class App extends Component {
 
   getFeed = async () => {
     try {
-      const response = await api.get("/feed");
+      
+      const url = window.location.href.slice(36);
+      console.log(url);
+      const response = await api.get(url);
       console.log(response.data);
       this.setState({ feed: response.data });
     } catch (error) {
